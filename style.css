@@ -1,0 +1,8 @@
+/* булавка у строки направления: видна закреплённой всегда, остальным — при наведении на строку */
+.pin-dir { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px;
+  border-radius: 6px; color: var(--muted-foreground); opacity: 0; cursor: pointer; flex: none; }
+.srow:hover .pin-dir, .pin-dir:focus-visible { opacity: 0.7; }
+.pin-dir:hover { opacity: 1; background: var(--muted); }
+.pin-dir.on { opacity: 1; color: var(--primary); }
+.pin-ico { width: 14px; height: 14px; background: currentColor; mask-size: contain; mask-repeat: no-repeat;
+  mask-position: center; -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; }
