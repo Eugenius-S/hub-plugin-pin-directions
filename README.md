@@ -9,3 +9,5 @@
 Поставить: «Настройки» → «Плагины» → «Можно поставить» → pin-directions.
 
 Код — MIT.
+
+Иконка — [3D Fluency](https://icons8.com/icons/3d-fluency) от Icons8.
