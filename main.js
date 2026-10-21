@@ -1,9 +1,15 @@
-// Закреплённые направления : булавка у строки направления; закреплённые — вверху блока «Направления»
-// в порядке закрепления, остальные — как в хабе. Закрепления хранятся в этом браузере.
+// Pinned directions: a pin on each direction row; pinned ones go to the top of the "Directions" block
+// in pin order, the rest stay as the hub orders them. Pins are stored in this browser.
+// UI strings: en by default, ru when the hub language is Russian (picked at use time by hub.lang).
+const STR = {
+  en: { unpin: "Unpin", pin: "Pin to the top of Directions" },
+  ru: { unpin: "Открепить", pin: "Закрепить вверху «Направлений»" },
+};
+const t = (hub, k) => (STR[hub.lang] ?? STR.en)[k] ?? STR.en[k];
 const KEY = "hub.pinnedDirections";
 const pins = () => { try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch { return []; } };
 const save = (list) => localStorage.setItem(KEY, JSON.stringify(list));
-// направление — как его видит хаб: не специалист, ведёт бэклог или есть в списке направлений
+// a direction as the hub sees it: not a specialist, keeps a backlog or is in the directions list
 const isDirection = (s, snap) => s.role !== "agent" && (!!s.backlog || (snap.directions || []).includes(s.name));
 
 export default function register(hub) {
@@ -26,7 +32,7 @@ export default function register(hub) {
         b.tabIndex = 0;
         b.dataset.session = session.name;
         const toggle = (e) => {
-          e.stopPropagation(); e.preventDefault();   // строка не открывается
+          e.stopPropagation(); e.preventDefault();   // the row does not open
           const p = pins();
           save(p.includes(session.name) ? p.filter((n) => n !== session.name) : [...p, session.name]);
           hub.redraw();
@@ -36,7 +42,7 @@ export default function register(hub) {
         root.replaceChildren(b);
       }
       b.classList.toggle("on", on);
-      b.title = on ? "Открепить" : "Закрепить вверху «Направлений»";
+      b.title = on ? t(hub, "unpin") : t(hub, "pin");
       b.setAttribute("aria-pressed", String(on));
       b.replaceChildren(hub.icon ? iconPin(hub) : "📌");
     },

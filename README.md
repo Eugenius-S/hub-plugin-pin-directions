@@ -1,13 +1,15 @@
-# Закреплённые направления — плагин Agents Hub
+# Pinned directions — Agents Hub plugin
 
-Булавка у строки направления в списке сессий: закреплённые направления стоят вверху блока «Направления», мимо
-алфавитного порядка, в порядке закрепления. Булавка видна при наведении, у закреплённого — всегда; повторный клик
-открепляет. Закрепления хранятся в браузере.
+A pin on each direction row in the session list: pinned directions stand at the top of the "Directions" block, outside
+the alphabetical order, in the order they were pinned. The pin shows on hover, and always for a pinned direction;
+click it again to unpin. Pins are stored in the browser.
 
-Нужен хаб с API плагинов 1.10 (`hub.addOrder`).
+Needs a hub with plugin API 1.10 (`hub.addOrder`).
 
-Поставить: «Настройки» → «Плагины» → «Можно поставить» → pin-directions.
+Install: Settings -> Plugins -> Available -> pin-directions.
 
-Код — MIT.
+The UI is in English by default and in Russian when the hub language is Russian.
 
-Иконка — [3D Fluency](https://icons8.com/icons/3d-fluency) от Icons8.
+Code — MIT.
+
+Icon — [3D Fluency](https://icons8.com/icons/3d-fluency) by Icons8.

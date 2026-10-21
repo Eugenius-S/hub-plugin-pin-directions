@@ -1,9 +1,15 @@
 {
   "name": "pin-directions",
   "icon": "icon.png",
-  "description": "Булавка у направления в списке сессий закрепляет его вверху блока «Направления»",
-  "why": "Главные направления всегда наверху, сколько бы их ни стало",
-  "version": "1.0.2",
+  "description": "The pin on a direction in the session list keeps it at the top of the \"Directions\" block",
+  "why": "Your main directions stay on top, however many there are",
+  "version": "1.1.0",
   "hub": "^1.10",
-  "web": "main.js"
+  "web": "main.js",
+  "i18n": {
+    "ru": {
+      "description": "Булавка у направления в списке сессий закрепляет его вверху блока «Направления»",
+      "why": "Главные направления всегда наверху, сколько бы их ни стало"
+    }
+  }
 }
