@@ -7,3 +7,9 @@
 html.th-clean .pin-dir.on { color: var(--c-t2, var(--muted-foreground)); }   /* Clean has no accent colour: a pinned pin is grey there */
 .pin-ico { width: calc(var(--icon-size, 16px) * 14 / 16); height: calc(var(--icon-size, 16px) * 14 / 16); background: currentColor; mask-size: contain; mask-repeat: no-repeat;
   mask-position: center; -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; }
+/* Clean: the pin stays at the right edge of the row and the status (thinking, failed, asleep, the unread dot, the "waiting" tag) sits to its left;
+   without this the status glyph, ordered last, pushed the pin 28px to the left and back. The executors counter (.fork-toggle, absolute in Clean)
+   moves left by the pin's width and gap; Clean moves it once more when a status is shown */
+html.th-clean .srow > .slot-sidebar-session:has(> .pin-dir) { order: 10; margin-left: 0; }
+html.th-clean li.has-forks:has(> .srow > .slot-sidebar-session > .pin-dir) > .fork-toggle { right: calc(8px + var(--icon-size, 16px) * 20 / 16 + 12px); }
+html.th-clean li.has-forks:has(> .srow > .slot-sidebar-session > .pin-dir):has(> .srow > :is(.dot, .glyph:is([data-s="busy"], [data-s="starting"], [data-s="failed"], [data-s="held"], [data-s="asleep"], [data-s="closed"], [data-s="absent"], [data-s="queued"]))) > .fork-toggle { right: calc(36px + var(--icon-size, 16px) * 20 / 16 + 12px); }
